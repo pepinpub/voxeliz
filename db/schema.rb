@@ -11,24 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405115329) do
+ActiveRecord::Schema.define(:version => 20130405141818) do
 
   create_table "models", :force => true do |t|
     t.string   "name"
-    t.integer  "scaleType"
     t.string   "imagePath"
     t.string   "modelPath"
-    t.string   "user"
-    t.decimal  "price"
+    t.float    "price"
     t.float    "volume"
     t.integer  "material"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "products", :force => true do |t|
-    t.string   "name"
-    t.decimal  "price"
+    t.string   "ext"
+    t.float    "area"
+    t.float    "bbX"
+    t.float    "bbY"
+    t.float    "bbZ"
+    t.float    "scale"
+    t.integer  "scaleType"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

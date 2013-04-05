@@ -18,7 +18,7 @@ class ModelsControllerTest < ActionController::TestCase
 
   test "should create model" do
     assert_difference('Model.count') do
-      post :create, model: { imagePath: @model.imagePath, material: @model.material, modelPath: @model.modelPath, name: @model.name, price: @model.price, scaleType: @model.scaleType, user: @model.user, volume: @model.volume }
+      post :create, model: { area: @model.area, bbX: @model.bbX, bbY: @model.bbY, bbZ: @model.bbZ, ext: @model.ext, imagePath: @model.imagePath, material: @model.material, modelPath: @model.modelPath, name: @model.name, price: @model.price, scale: @model.scale, scaleType: @model.scaleType, volume: @model.volume }
     end
 
     assert_redirected_to model_path(assigns(:model))
@@ -35,7 +35,7 @@ class ModelsControllerTest < ActionController::TestCase
   end
 
   test "should update model" do
-    put :update, id: @model, model: { imagePath: @model.imagePath, material: @model.material, modelPath: @model.modelPath, name: @model.name, price: @model.price, scaleType: @model.scaleType, user: @model.user, volume: @model.volume }
+    put :update, id: @model, model: { area: @model.area, bbX: @model.bbX, bbY: @model.bbY, bbZ: @model.bbZ, ext: @model.ext, imagePath: @model.imagePath, material: @model.material, modelPath: @model.modelPath, name: @model.name, price: @model.price, scale: @model.scale, scaleType: @model.scaleType, volume: @model.volume }
     assert_redirected_to model_path(assigns(:model))
   end
 

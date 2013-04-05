@@ -2,20 +2,30 @@
 
 one:
   name: MyString
-  scaleType: 1
   imagePath: MyString
   modelPath: MyString
-  user: MyString
-  price: 9.99
+  price: 1.5
   volume: 1.5
-  material: 1
+  material: 
+  ext: MyString
+  area: 1.5
+  bbX: 1.5
+  bbY: 1.5
+  bbZ: 1.5
+  scale: 1.5
+  scaleType: 1
 
 two:
   name: MyString
-  scaleType: 1
   imagePath: MyString
   modelPath: MyString
-  user: MyString
-  price: 9.99
+  price: 1.5
   volume: 1.5
-  material: 1
+  material: 
+  ext: MyString
+  area: 1.5
+  bbX: 1.5
+  bbY: 1.5
+  bbZ: 1.5
+  scale: 1.5
+  scaleType: 1

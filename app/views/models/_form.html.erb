@@ -1,36 +1,69 @@
+<%= form_for(@model) do |f| %>
+  <% if @model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@model.errors.count, "error") %> prohibited this model from being saved:</h2>
 
-
-<%= form_for @model, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+      <ul>
+      <% @model.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
-
-
-  <div class="control-group">
-     <%= f.label "Fichier", :class => 'control-label'%>
-    <div class="controls">
-      <%= f.file_field :avatar, :class =>'help-inline'%>
-    </div>
-  </div> 
-  
-
-  <div class="control-group">
-    <%= f.label :echelle, :class => 'control-label' %>
-     <div class="controls">
-      <select>
-        <option>Millimetres</option>
-        <option>Inches</option>
-      </select>
-    </div>
+  <div class="field">
+    <%= f.label :imagePath %><br />
+    <%= f.text_field :imagePath %>
   </div>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-warning' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                models_path, :class => 'btn' %>
+  <div class="field">
+    <%= f.label :modelPath %><br />
+    <%= f.text_field :modelPath %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :volume %><br />
+    <%= f.text_field :volume %>
+  </div>
+  <div class="field">
+    <%= f.label :material %><br />
+    <%= f.text_field :material %>
+  </div>
+  <div class="field">
+    <%= f.label :ext %><br />
+    <%= f.text_field :ext %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br />
+    <%= f.text_field :area %>
+  </div>
+  <div class="field">
+    <%= f.label :bbX %><br />
+    <%= f.text_field :bbX %>
+  </div>
+  <div class="field">
+    <%= f.label :bbY %><br />
+    <%= f.text_field :bbY %>
+  </div>
+  <div class="field">
+    <%= f.label :bbZ %><br />
+    <%= f.text_field :bbZ %>
+  </div>
+  <div class="field">
+    <%= f.label :scale %><br />
+    <%= f.text_field :scale %>
+  </div>
+  <div class="field">
+    <%= f.label :scaleType %><br />
+    <%= f.number_field :scaleType %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
   </div>
 <% end %>
-

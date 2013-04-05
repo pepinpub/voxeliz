@@ -1,3 +1,3 @@
 class Model < ActiveRecord::Base
-  attr_accessible :imagePath, :material, :modelPath, :name, :price, :scaleType, :user, :volume
+  attr_accessible :area, :bbX, :bbY, :bbZ, :ext, :imagePath, :material, :modelPath, :name, :price, :scale, :scaleType, :volume
 end
