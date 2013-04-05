@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @model.name %>
+</p>
+
+<p>
+  <b>Scaletype:</b>
+  <%= @model.scaleType %>
+</p>
+
+<p>
+  <b>Imagepath:</b>
+  <%= @model.imagePath %>
+</p>
+
+<p>
+  <b>Modelpath:</b>
+  <%= @model.modelPath %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @model.user %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @model.price %>
+</p>
+
+<p>
+  <b>Volume:</b>
+  <%= @model.volume %>
+</p>
+
+<p>
+  <b>Material:</b>
+  <%= @model.material %>
+</p>
+
+
+<%= link_to 'Edit', edit_model_path(@model) %> |
+<%= link_to 'Back', models_path %>

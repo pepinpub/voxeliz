@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  scaleType: 1
+  imagePath: MyString
+  modelPath: MyString
+  user: MyString
+  price: 9.99
+  volume: 1.5
+  material: 1
+
+two:
+  name: MyString
+  scaleType: 1
+  imagePath: MyString
+  modelPath: MyString
+  user: MyString
+  price: 9.99
+  volume: 1.5
+  material: 1

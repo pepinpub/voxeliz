@@ -1,0 +1,12 @@
+
+<%- model_class = Model -%>
+<div class="row-fluid" >
+  <div class="span6  offset3"><!--  style="border: solid 3px red; border-radius: 10px;background-color: #f0f0f0"> -->
+
+	<div class="page-header">
+	  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %></h1>
+	</div>
+    <%= render :partial => 'form' %> 
+
+ </div>
+</div>
