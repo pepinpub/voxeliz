@@ -41,7 +41,8 @@ class ModelsController < ApplicationController
   # POST /models.json
   def create
     @model = Model.new(params[:model])
-
+    @model.name = "test"
+    @model.scale = 1
     respond_to do |format|
       if @model.save
         format.html { redirect_to @model, notice: 'Model was successfully created.' }
@@ -57,7 +58,8 @@ class ModelsController < ApplicationController
   # PUT /models/1.json
   def update
     @model = Model.find(params[:id])
-
+    @model.name = "test"
+    @model.scale = 1
     respond_to do |format|
       if @model.update_attributes(params[:model])
         format.html { redirect_to @model, notice: 'Model was successfully updated.' }
