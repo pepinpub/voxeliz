@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Store</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+  <!-- <div class="navbar navbar-fixed-top navbar-inverse"> -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <!-- <a class="brand" href="#">Voxeliz</a> -->
+		<img src="voxeliz_arista.png" class="brand" width="120">
+
+        <!-- <a <img src="voxeliz_OrangeJuice.png" class="img-rounded" width="10%" height="10%"> -->
+        <!-- voxeliz_oversteer -->
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "Blog", posts_path %></li>
+            <li><%= link_to "Price List" %></li>
+            <li><%= link_to "Contact Us" %></li>
+            <li><%= link_to "Cart" %></li>
+          </ul>
+          <ul class="nav pull-right">
+            <% if user_signed_in? %>
+              <!-- <div>Signed in as... <%= current_user.email %></div> -->
+                <!-- <li><%= link_to "#{current_user.email}", new_user_session_path %></li> -->
+
+              <li>
+                <%= link_to  edit_user_registration_path  do %>
+                <i class=" icon-user icon-black"></i>
+                <%="#{current_user.email}"%>
+                <% end %>
+              </li>
+
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to "Connection", new_user_session_path %></li>
+            <% end %>
+            
+
+
+
+
+            <!-- <button class="btn btn-success btn-mini" type="button"><i class="icon-user icon-white"></i> Block level button</button> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row-fluid">
+  <div class="span6  offset3">
+	<div id="myCarousel" class="carousel slide">
+	  <ol class="carousel-indicators">
+	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	    <li data-target="#myCarousel" data-slide-to="1"></li>
+	    <li data-target="#myCarousel" data-slide-to="2"></li>
+	    <li data-target="#myCarousel" data-slide-to="3"></li>
+	  </ol>
+	  <!-- Carousel items -->
+	  <div class="carousel-inner">
+	    <div class="active item"><img src="carousel.jpg" class="img-rounded"></div>
+	    <div class="item"><img src="carousel.jpg" class="img-rounded"></div>
+	    <div class="item"><img src="voxeliz_arista.png" class="brand" width="400"></div>
+	    <div class="item"><img src="voxeliz_arista.png" class="brand" width="400"></div>
+	  </div>
+	  <!-- Carousel nav -->
+	  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+    </div>
+  </div>
+
+<!-- <h1>Hello, Rails!</h1> -->
+ <!-- <%= link_to "My Blog", posts_path %> -->
+
+<div class="row-fluid">
+  <div class="span2  offset5"><i class="icon-user icon-white"></i><%= button_to "Transférez un fichier 3D", new_user_session_path ,class: "btn btn-large btn-block btn-primary" %></div>
+
+<!-- <img src="voxeliz_oversteer.png" class="img-rounded" height="40">  -->
+
+  <!-- <div class="span3 offset2"><button class="btn btn-large btn-block" type="button">Block level button</button></div> -->
+</div>
+
+
+
+    <div class="push"><!--//--></div>
+    </div>
+    <footer>
+      <div class="container">
+        <p>Put together in less than five minutes by <a href="http://www.martinbean.co.uk/" rel="author">Martin Bean</a>. Uses <a href="http://twitter.github.com/bootstrap/" rel="external">Twitter Bootstrap</a> and <a href="http://ryanfait.com/sticky-footer/" rel="external">Ryan Fait&rsquo;s Sticky Footer</a>.</p>
+      </div>
+    </footer>
+
+
+
+</body>
+</html>
