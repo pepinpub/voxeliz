@@ -58,5 +58,8 @@ module Voxeliz
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #Command for bootstrap tweeter in production
+    config.assets.initialize_on_precompile = false
   end
 end
