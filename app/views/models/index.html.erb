@@ -1,47 +1,50 @@
-<h1>Listing models</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Imagepath</th>
-    <th>Modelpath</th>
-    <th>Price</th>
-    <th>Volume</th>
-    <th>Material</th>
-    <th>Ext</th>
-    <th>Area</th>
-    <th>Bbx</th>
-    <th>Bby</th>
-    <th>Bbz</th>
-    <th>Scale</th>
-    <th>Scaletype</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <h1>Listing models</h1>
 
-<% @models.each do |model| %>
-  <tr>
-    <td><%= model.name %></td>
-    <td><%= model.imagePath %></td>
-    <td><%= model.modelPath %></td>
-    <td><%= model.price %></td>
-    <td><%= model.volume %></td>
-    <td><%= model.material %></td>
-    <td><%= model.ext %></td>
-    <td><%= model.area %></td>
-    <td><%= model.bbX %></td>
-    <td><%= model.bbY %></td>
-    <td><%= model.bbZ %></td>
-    <td><%= model.scale %></td>
-    <td><%= model.scaleType %></td>
-    <td><%= link_to 'Show', model %></td>
-    <td><%= link_to 'Edit', edit_model_path(model) %></td>
-    <td><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>User_id</th>
+        <th>Imagepath</th>
+        <th>Modelpath</th>
+        <th>Price</th>
+        <th>Volume</th>
+        <th>Material</th>
+        <th>Ext</th>
+        <th>Area</th>
+        <th>Bbx</th>
+        <th>Bby</th>
+        <th>Bbz</th>
+        <th>Scale</th>
+        <th>Scaletype</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<br />
+    <% @models.each do |model| %>
+      <tr>
+        <td><%= model.name %></td>
+        <td><%= model.user_id %></td>
+        <td><%= model.imagePath %></td>
+        <td><%= model.modelPath %></td>
+        <td><%= model.price %></td>
+        <td><%= model.volume %></td>
+        <td><%= model.material %></td>
+        <td><%= model.ext %></td>
+        <td><%= model.area %></td>
+        <td><%= model.bbX %></td>
+        <td><%= model.bbY %></td>
+        <td><%= model.bbZ %></td>
+        <td><%= model.scale %></td>
+        <td><%= model.scaleType %></td>
+        <td><%= link_to 'Show', model %></td>
+        <td><%= link_to 'Edit', edit_model_path(model) %></td>
+        <td><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
 
-<%= link_to 'New Model', new_model_path %>
+    <br />
+
+    <%= link_to 'New Model', new_model_path %>

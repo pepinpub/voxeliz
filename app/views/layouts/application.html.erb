@@ -7,6 +7,7 @@
   <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -14,8 +15,8 @@
 
 
 <!-- NAVBAR -->
-<!-- <div class="navbar navbar-fixed-top navbar-inverse"> -->
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top navbar-inverse">
+<!-- <div class="navbar navbar-fixed-top"> -->
     <div class="navbar-inner">
         <div class="container">
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -29,7 +30,7 @@
 
 			<div class="nav-collapse">
             <ul class="nav">
-                <li><%= link_to "Blog", posts_path %></li>
+                <li><%= link_to "Blog", root_path %></li>
 	            <li><%= link_to "Price List" %></li>
 	            <li><%= link_to "Contact Us" %></li>
 	            <li><%= link_to "Cart" %></li>
@@ -45,6 +46,7 @@
 	            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 	       	<% else %>
 	             <li><%= link_to "Connection", new_user_session_path %></li>
+               <li><button class="btn btn-mini btn-primary" type="link">Mini button</button></li>
 	        <% end %>
 	        </ul>
 

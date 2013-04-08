@@ -1,6 +1,7 @@
 class CreateModels < ActiveRecord::Migration
   def change
     create_table :models do |t|
+      t.references :user
       t.string :name
       t.string :imagePath
       t.string :modelPath
@@ -14,9 +15,9 @@ class CreateModels < ActiveRecord::Migration
       t.float :bbZ
       t.float :scale
       t.integer :scaleType
-
-      t.references :user
+      
       t.timestamps
     end
+     add_index :models, :user_id
   end
 end

@@ -1,3 +1,5 @@
+
+
 <%= form_for(@model) do |f| %>
   <% if @model.errors.any? %>
     <div id="error_explanation">
@@ -56,9 +58,14 @@
   <div class="control-group">
      <%= f.label "Fichier", :class => 'control-label'%>
     <div class="controls">
-      <%= f.file_field :imagePath, :class =>'help-inline'%>
+      <%= f.file_field :avatar, :class =>'help-inline'%>
     </div>
   </div> 
+<!-- 
+  <%= form_for @model, :url => models_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %>
+<% end %> -->
+
   
 
   <div class="control-group">
@@ -72,7 +79,27 @@
   </div>
 
 
-  <div class="actions">
+
+  <div class="form-actions">
+    <%= f.submit "Envoyer le fichier", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), models_path, :class => 'btn' %>
+
+  </div>
+
+<!--  -->
+<!--   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+<% end %> -->
+
+
+
+
+
+
+
+
+
+
+
+

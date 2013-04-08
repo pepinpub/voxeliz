@@ -2,7 +2,10 @@ class ModelsController < ApplicationController
   # GET /models
   # GET /models.json
   def index
-    @models = Model.all
+    # @models = Model.all
+    # @models =   Model.find(:all, :conditions => [ "user_id = ?", user_id])
+     @user = User.find(current_user.id)
+     @models = @user.models
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +16,7 @@ class ModelsController < ApplicationController
   # GET /models/1
   # GET /models/1.json
   def show
+
     @model = Model.find(params[:id])
 
     respond_to do |format|
@@ -40,13 +44,25 @@ class ModelsController < ApplicationController
   # POST /models
   # POST /models.json
   def create
-    @model = Model.new(params[:model])
+    # @post.user = current_user
+    # @user = User.find(params[:user_id])
+    # @model = @user.models.create(params[:model])
+
+    # On construit le model pour l utilsateur courant
+    @model = current_user.models.build(params[:model])
+    #Equivault a ces deux lignes
+    # @model = Model.new(params[:model])
+    # @model.user = current_user
+
     @model.name = "test"
     @model.scale = 1
+    @model.modelPath = @model.avatar.url
+
     respond_to do |format|
       if @model.save
         format.html { redirect_to @model, notice: 'Model was successfully created.' }
         format.json { render json: @model, status: :created, location: @model }
+
       else
         format.html { render action: "new" }
         format.json { render json: @model.errors, status: :unprocessable_entity }
