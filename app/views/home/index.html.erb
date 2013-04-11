@@ -30,29 +30,6 @@
     <div class="span2 offset5">
       <!-- <i class="icon-user icon-white"></i> -->
       <%= link_to "Transférez un fichier 3D", new_model_path , class: "btn btn-primary btn-large" %>
-      <button class="btn btn-primary btn-large" type="link" href="new_model_path" >Transférez un fichier 3D</button>
-
-		<% if user_signed_in? %>
-              	<%="#{current_user.email}"%>
-              	<%="#{controller.user_session}"%>
-        <% else %>
-        		"NIL"
-        <% end %>
-
     </div>
   </div>
 <!-- BOUTON TRANSFER END -->
-
-
-<div class="modal" style="position: relative; top: auto; left: auto; right: auto; margin: 0 auto 20px; z-index: 1; max-width: 100%;">
-      <div class="modal-header">
-        <h3>Mon model</h3>
-      </div>
-      <div class="modal-body">
-        <p><img src="/260.jpg" class="img-polaroid"></p>
-      </div>
-      <div class="modal-footer">
-<!--         <a href="#" class="btn">Close</a> -->
-        <a href="#" class="btn btn-primary">Update price</a>
-      </div>
-</div>

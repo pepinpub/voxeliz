@@ -41,6 +41,67 @@ class ModelsController < ApplicationController
     @model = Model.find(params[:id])
   end
 
+
+# def objSize
+#       #output = `mayapy test3.py https://s3-eu-west-1.amazonaws.com/vox3/images/avatars/26_original_pitcher.obj`
+#       # animal = "https://s3-eu-west-1.amazonaws.com/vox3/images/avatars/26_original_pitcher.obj"
+#       # animal =  "http://vox3.s3.amazonaws.com/3dmodels/users/2/original_sphere.obj"
+      
+#       animal = @model.avatar.url 
+#       #a = animal.split("?")
+#       #tutu = a[0]
+#       # output = `mayapy test3.py http://vox3.s3.amazonaws.com/3dmodels/users/2/original_sphere.obj`
+#        output = `mayapy test3.py #{animal}`
+#       #return output
+#       toto=1
+#       # require 'net/ssh'
+#       # Net::SSH.start("ec2-54-242-219-53.compute-1.amazonaws.com", "public") do |ssh|
+#         #animal = @model.avatar.url 
+#         #result = ssh.exec!("mayapy c:/test3b.py #{animal}")
+#         #toto= result
+#       #end
+#       return output
+#   end
+
+def get_volume_value
+   animal = @model.avatar.url 
+
+   #Calcule en local
+   @output = `mayapy test4.py #{animal}`
+
+   #Calcule sur EC2
+   # require 'net/ssh'
+   # Net::SSH.start("ec2-54-242-219-53.compute-1.amazonaws.com", "public") do |ssh|
+   #    @output = ssh.exec!("mayapy c:/test3b.py #{animal}")
+   #  end
+    
+   # if !@output.nil?
+   if @output.length > 6
+     words = @output.split(' ')
+     #bbX
+     tmpF = Float(words[0])
+     @model.bbX = tmpF.round(3)
+     #bbY
+     tmpF = Float(words[1])
+     @model.bbY = tmpF.round(3)
+     #bbZ
+     tmpF = Float(words[2])
+     @model.bbZ = tmpF.round(3)
+
+     # # @model.name= output
+     @model.name =@output
+     @model.save!
+     # self.update_attribute(:name, @output)
+    else
+      @model.name ="Error"
+      @model.save!
+      # flash[:notice] = "You have successfully logged out"
+      # redirect_to root_url
+    end
+  end
+
+
+
   # POST /models
   # POST /models.json
   def create
@@ -54,12 +115,20 @@ class ModelsController < ApplicationController
     # @model = Model.new(params[:model])
     # @model.user = current_user
 
-    @model.name = "test"
+    #On appelle la procedure objSize
+    # @model.name= objSize
+    # @model.name = "test"
+
     @model.scale = 1
     @model.modelPath = @model.avatar.url
+    @model.bbX=100
+    @model.bbY=100
+    @model.bbZ=100
 
     respond_to do |format|
+
       if @model.save
+        get_volume_value
         format.html { redirect_to @model, notice: 'Model was successfully created.' }
         format.json { render json: @model, status: :created, location: @model }
 
@@ -74,7 +143,7 @@ class ModelsController < ApplicationController
   # PUT /models/1.json
   def update
     @model = Model.find(params[:id])
-    @model.name = "test"
+    # @model.name = "test"
     @model.scale = 1
     respond_to do |format|
       if @model.update_attributes(params[:model])

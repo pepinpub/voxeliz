@@ -3,8 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'devise', '2.2.3'
 
-gem "paperclip", "~> 3.4.1"
+gem 'paperclip', '~> 3.4.1'
 gem 'aws-sdk'
+
+gem 'fog', '~> 1.10.0'
+
+gem "net-ssh"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
